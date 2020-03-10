@@ -27,7 +27,7 @@ matplotlib.rcParams['font.family'] = "sans-serif"
 
 with plt.xkcd():
 	#~ fig = plt.figure()
-    p = plt.plot([day_data['data'].split()[0] for day_data in regional_data],[int(day_data['totale_casi']) for day_data in regional_data])
+    p = plt.plot([day_data['data'].split()[0] for day_data in regional_data[1:]],[int(day_data['totale_casi']) for day_data in regional_data])
     plt.setp(p, color='r', linewidth=2.0, marker='o')
     plt.xticks(rotation=45)
     #plt.show()
