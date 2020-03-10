@@ -2,7 +2,7 @@ import csv
 import matplotlib
 import matplotlib.pyplot as plt
 
-
+print('Creating plot...')
 CSV_PATH = '../COVID-19/dati-regioni/dpc-covid19-ita-regioni.csv'
 
 REGIONE = 'Liguria'
