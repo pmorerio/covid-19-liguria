@@ -1,3 +1,4 @@
-# covid-19-liguria
+# Covid-19 in Liguria
 
+## Totale casi
 ![totale_casi](./plots/totale_casi.png)
