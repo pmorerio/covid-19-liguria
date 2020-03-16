@@ -3,6 +3,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
+
 print('Creating plot...')
 CSV_PATH = '../COVID-19/dati-regioni/dpc-covid19-ita-regioni.csv'
 
@@ -17,14 +18,8 @@ with open(CSV_PATH) as csv_file:
 	if row['denominazione_regione'] == REGIONE:
 	    regional_data.append(row)
 
-#~ print(regional_data)
-#~ print(len(regional_data))
-
-# Say, "the default sans-serif font is COMIC SANS"
 matplotlib.rcParams['font.sans-serif'] = "Humor-Sans"
-#~ # Then, "ALWAYS use sans-serif fonts"
 matplotlib.rcParams['font.family'] = "sans-serif"
-#~ myfont = {'fontname':'Humor Sans'}
 
 fields2plot = ['totale_casi', 'terapia_intensiva', 'deceduti']
 colors = ['r','g','b']
@@ -40,10 +35,8 @@ with plt.xkcd():
 	p = plt.plot([day_data['data'].split()[0] for day_data in regional_data],[int(day_data[data_field]) for day_data in regional_data])
 	plt.setp(p, color=col, linewidth=2.0, marker=mark)
 	plt.xticks(rotation=90)
-	
-	if 'totale_casi' in data_field:
-	    plt.annotate('(??)', xy=(4.8,42), arrowprops=dict(arrowstyle='->'), xytext=(2, 50))
-    
+	#~ if 'totale_casi' in data_field:
+	    #~ plt.annotate('(??)', xy=(4.8,42), arrowprops=dict(arrowstyle='->'), xytext=(2, 50))
     plt.legend([data_field.replace("_"," ") for data_field in fields2plot], loc=6)
     plt.savefig('plots/all.png', bbox_inches='tight')
     #~ plt.show()
@@ -58,9 +51,8 @@ with plt.xkcd():
 	plt.xticks(rotation=90)
 	plt.annotate('Dati: https://github.com/pcm-dpc/COVID-19', xy=(0,int(regional_data[-1][data_field])))
 	plt.title(readable_field+' liguria')
-	if 'totale_casi' in data_field:
-	    plt.annotate('(??)', xy=(4.8,42), arrowprops=dict(arrowstyle='->'), xytext=(2, 50))
-	
+	#~ if 'totale_casi' in data_field:
+	    #~ plt.annotate('(??)', xy=(4.8,42), arrowprops=dict(arrowstyle='->'), xytext=(2, 50))
 	plt.savefig('plots/'+data_field+'.png', bbox_inches='tight')
 	#~ plt.show()
 
