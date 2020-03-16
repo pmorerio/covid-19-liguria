@@ -1,8 +1,8 @@
 cd 
 cd code/covid_project/COVID-19 && git pull && cd ../covid-19-liguria
-python plot.py
+python3 plot.py
 cd italy
-python plot_italy.py
+python3 plot_italy.py
 cd ..
 MESSAGE=$(date)
 git add plots/*
