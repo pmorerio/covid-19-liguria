@@ -17,10 +17,11 @@ def logistic_model(x,a,b,c):
 print('Creating plot for Italy...')
 df = pd.read_csv('../../COVID-19/dati-andamento-nazionale/dpc-covid19-ita-andamento-nazionale.csv')
 df = df.loc[:,['data','totale_casi']]
-FMT = '%Y-%m-%d %H:%M:%S'
+FMT = '%Y-%m-%dT%H:%M:%S'
 date = df['data']
+print(date)
 # Prepare data
-df['data'] = date.map(lambda x : (datetime.strptime(x, FMT) - datetime.strptime("2020-01-01 00:00:00", FMT)).days  )
+df['data'] = date.map(lambda x : (datetime.strptime(x, FMT) - datetime.strptime("2020-01-01T00:00:00", FMT)).days  )
 print(df)
 
 x = list(df.iloc[:,0])
