@@ -19,7 +19,7 @@ df = pd.read_csv('../../COVID-19/dati-andamento-nazionale/dpc-covid19-ita-andame
 df = df.loc[:,['data','totale_casi']]
 FMT = '%Y-%m-%dT%H:%M:%S'
 date = df['data']
-print(date)
+#~ print(date)
 # Prepare data
 df['data'] = date.map(lambda x : (datetime.strptime(x, FMT) - datetime.strptime("2020-01-01T00:00:00", FMT)).days  )
 print(df)
@@ -30,7 +30,7 @@ print('Observed data')
 print('Day number:',x)
 print('Observed infected people:',y)
 
-fit, cov = curve_fit(logistic_model,x,y,p0=[2,100,20000])
+fit, cov = curve_fit(logistic_model,x,y,p0=[10,100,100000])
 # logistic model estimated parameters
 a=fit[0] # infection speed
 b=fit[1] # logistic function inflection point
