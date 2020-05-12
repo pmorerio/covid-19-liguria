@@ -27,6 +27,7 @@ markers = ['o','v','s']
 
 with plt.xkcd():   
     fig = plt.figure()
+    fig.set_size_inches(15, 10)
     plt.annotate('Dati: https://github.com/pcm-dpc/COVID-19', xy=(0,int(regional_data[-1]['totale_casi'])))
     plt.title('Situazione liguria')
     for data_field, col, mark in zip(fields2plot, colors, markers):
@@ -45,7 +46,8 @@ with plt.xkcd():
 with plt.xkcd():   
     for data_field in fields2plot:
         readable_field = data_field.replace("_"," ")
-        fig = plt.figure()
+	fig = plt.figure()
+	fig.set_size_inches(15, 10)
         p = plt.plot([day_data['data'].split()[0].split('T')[0] for day_data in regional_data],[int(day_data[data_field]) for day_data in regional_data])
         plt.setp(p, color='r', linewidth=2.0, marker='o')
         plt.xticks(rotation=90)
